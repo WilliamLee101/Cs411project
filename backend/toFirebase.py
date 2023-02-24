@@ -17,6 +17,6 @@ food["burger"]=["100g", "5-star"]
 
 #push and get
 ref = db.reference("/")
-# ref.set({"food":food})
+ref.set({"food":food})
 print(ref.get("food"))
 
