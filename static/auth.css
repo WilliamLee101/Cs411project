@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: orange;
+  }
+  
+h1 {
+    margin-bottom: 30px;
+    font-size: 48px;
+}
+  
+button {
+    padding: 16px 32px;
+    font-size: 24px;
+    background-color: #f44242;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.google_sign-in {
+    padding: 16px 32px;
+    font-size: 24px;
+    background-color: #f44242;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  
+  button.google_sign-in:hover {
+    transform: scale(1.05);
+  }
+  
+  button.google_sign-in:active {
+    animation-name: explode;
+  }
+  
+  @keyframes explode {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+  
+
+
+  

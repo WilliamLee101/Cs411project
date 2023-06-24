@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Find What You Like</title>
+</head>
+<body>
+  <div>
+    <h1 class="status"></h1>
+    <button class="location-button">Get My Location</button>
+    <div class="status">
+        <span id="latitude"></span>
+        <span id="longitude"></span>
+    </div>   
+  </div>
+  <button class="history-button" onclick="location.href='/history'">History</button>
+  <div class="container">
+    <form class="form" method="POST" action="/process-form" onsubmit="console.log('Form submitted!')">
+        <input type="text" class="input-box" placeholder="Favorite Genre" name="genre">
+        <input type="text" class="input-box" placeholder="Date Range (e.g. 2023-05-19 - 2023-05-19)" name="date_range">
+        <input type="text" class="input-box" placeholder="Maximum Price" name="max_price">
+        <input type="text" class="input-box" placeholder="Maximum Distance from Location (unit: km)" name="max_distance">
+        <input type="text" class="input-box" placeholder="State Code (e.g. MA)" name="state_code">
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+  <h1>Search Results</h1>
+  <table border="1">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Start Date</th>
+              <th>Start Time</th>
+              <th>Min Price</th>
+              <th>Max Price</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for event in data %}
+          <tr>
+              <td>{{ event.name }}</td>
+              <td>{{ event.status }}</td>
+              <td>{{ event.start_date }}</td>
+              <td>{{ event.start_time }}</td>
+              <td>{{ event.min_price }}</td>
+              <td>{{ event.max_price }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+  <script src="{{ url_for('static', filename='history.js') }}"></script>
+
+</body>
+</html>
